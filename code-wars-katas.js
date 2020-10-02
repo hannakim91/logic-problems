@@ -26,3 +26,13 @@ function sortAnimal(list) {
 // 7
 
 // 8 
+
+// The Feast of Many Beasts https://www.codewars.com/kata/5aa736a455f906981800360d
+function feast(beast, dish) {
+  
+  if (beast.charAt(0) === dish.charAt(0) && beast.charAt(beast.length-1) === dish.charAt(dish.length -1)) {
+    return true
+  }
+  else return false
+}
+
