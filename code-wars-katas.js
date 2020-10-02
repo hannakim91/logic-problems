@@ -36,3 +36,21 @@ function feast(beast, dish) {
   else return false
 }
 
+function feastAlt(beast, dish) {
+  const beastWords = beast.split(' ')
+  const dishWords = dish.split(' ')
+  
+  const nameCheck = beastWords.reduce((nameCheck, word) => {
+    dishWords.forEach(werd => {
+      if (werd === word) {
+        nameCheck.push(word)
+      }
+    })
+    return nameCheck
+  }, [])
+  console.log(nameCheck)
+  if (beast.charAt(0) === dish.charAt(0) && nameCheck.length === 0) {
+    return true
+  }
+   return false
+}
