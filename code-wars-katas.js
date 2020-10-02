@@ -36,6 +36,7 @@ function feast(beast, dish) {
   else return false
 }
 
+// alternative: checks for name of animal not being included in dish name (misread prompt)
 function feastAlt(beast, dish) {
   const beastWords = beast.split(' ')
   const dishWords = dish.split(' ')
