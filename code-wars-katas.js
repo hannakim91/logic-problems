@@ -23,6 +23,70 @@ function sortAnimal(list) {
   } 
 }
 
+// Matrix Addition: https://www.codewars.com/kata/526233aefd4764272800036f/train/javascript
+
+function matrixAddition(a, b){
+  const matrixLength = a[0].length
+  console.log('matrixLength', matrixLength)
+  a = a.flat(), b = b.flat()
+  const c = a.reduce((sum, num, i) => {
+    let x;
+    x = num + b[i]
+    sum.push(x)
+    return sum
+  }, [])
+  
+  const result = []
+  let array = []
+  for (let i = 0; i < c.length; i++) {
+    array.push(c[i])
+    console.log(array)
+    if (i === matrixLength - 1) {
+      result.push(array)
+      array = []
+    }
+    // result.push(c.slice(0, i))
+  }
+  return result
+}
+
+// matrixLength = find the length of a[0] to get length of each subarray
+// concatenate/flatten arrays in a and b
+// iterate through a[0] - a[flattendArrayLength]     // nest iteration through b[0] - b [flattened...]
+    // add at matching index # to create and return array of added numbers (c)
+// divide c by matrixLength to return array of sub-arrays - slice? for loop -- iterate through array c 
+  // c.length / matrixLength = number of elements in each array
+  // chunk = 4 / 2 = 2 -> 2 arrays of 2 elements apiece
+    //slice by 0, x
+    //slice by x, c.length - chunk
+    //repeat until chunk = c.length
+
+// Visualization:
+
+// |1 2 3|     |2 2 1|     |1+2 2+2 3+1|     |3 4 4|
+// |3 2 1|  +  |3 2 3|  =  |3+3 2+2 1+3|  =  |6 4 4|
+// |1 1 1|     |1 1 3|     |1+1 1+1 1+3|     |2 2 4|
+
+matrixAddition(
+  [ [1, 2],
+    [1, 2] ],
+  [ [2, 3],
+    [2, 3] ] )
+//[ [3, 5], 
+//  [3, 5] ] 
+
+matrixAddition(
+  [ [1, 2, 3],
+    [3, 2, 1],
+    [1, 1, 1] ],
+  [ [2, 2, 1],
+    [3, 2, 3],
+    [1, 1, 3] ] )
+//      =
+  // [ [3, 4, 4],
+  //   [6, 4, 4],
+  //   [2, 2, 4] ] );
+
 // 7
 
 // 8 
