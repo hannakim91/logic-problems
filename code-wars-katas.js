@@ -23,12 +23,11 @@ function sortAnimal(list) {
   } 
 }
 
-// Matrix Addition: https://www.codewars.com/kata/526233aefd4764272800036f/train/javascript
+// Matrix Addition: 
 
 function matrixAddition(a, b){
   const matrixLength = a[0].length
-  console.log('matrixLength', matrixLength)
-  a = a.flat(), b = b.flat()
+  a = [].concat(...a), b = [].concat(...b)
   const c = a.reduce((sum, num, i) => {
     let x;
     x = num + b[i]
@@ -36,18 +35,17 @@ function matrixAddition(a, b){
     return sum
   }, [])
   
-  const result = []
-  let array = []
-  for (let i = 0; i < c.length; i++) {
-    array.push(c[i])
-    console.log(array)
-    if (i === matrixLength - 1) {
-      result.push(array)
-      array = []
-    }
-    // result.push(c.slice(0, i))
+  return chunk(c, matrixLength)
+}
+
+function chunk(array, size) {
+  const chunkedArray = [];
+  let index = 0;
+  while (index < array.length) {
+    chunkedArray.push(array.slice(index, size + index));
+    index += size;
   }
-  return result
+  return chunkedArray;
 }
 
 // matrixLength = find the length of a[0] to get length of each subarray
@@ -61,11 +59,17 @@ function matrixAddition(a, b){
     //slice by x, c.length - chunk
     //repeat until chunk = c.length
 
+// https://medium.com/@Dragonza/four-ways-to-chunk-an-array-e19c889eac4
+
 // Visualization:
 
 // |1 2 3|     |2 2 1|     |1+2 2+2 3+1|     |3 4 4|
 // |3 2 1|  +  |3 2 3|  =  |3+3 2+2 1+3|  =  |6 4 4|
 // |1 1 1|     |1 1 3|     |1+1 1+1 1+3|     |2 2 4|
+matrixAddition(
+  [ [1] ],
+//   +
+  [ [2] ] )
 
 matrixAddition(
   [ [1, 2],
