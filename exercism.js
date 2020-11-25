@@ -56,7 +56,7 @@
     getPublicKeyFromPrivateKey(privateKey) {
       if (privateKey <= 1 || privateKey >= this.p) {
         throw new Error("Remove this statement and implement this function");
-      }
+    }
       const publicKey = this.g ** privateKey % this.p
       return publicKey
     }
@@ -74,3 +74,64 @@
   
   export const COLORS = ["black","brown","red","orange","yellow","green","blue","violet","grey","white"];
   
+  // resistorColorDuo
+
+  export const decodedValue = (resistors) => {
+    let firstTwoResistors = resistors.slice(0, 2)
+    const numbers = firstTwoResistors.map(resistor => COLORS.indexOf(resistor))
+    const joined = numbers.join('')
+    return Number(joined)
+  };
+  
+  const COLORS = ["black","brown","red","orange","yellow","green","blue","violet","grey","white"];
+
+  // protein translation
+  
+  export const translate = (RNA) => {
+
+    if (!RNA) {
+      return []
+    } else if (!(RNA.length % 3 === 0)) {
+      throw new Error('Invalid codon')
+    }
+  
+    const codons = []
+    let i = 0
+    while (i < RNA.length) {
+      codons.push(RNA.slice(i, i+3))
+      i += 3
+    }
+  
+    const proteins = codons
+      .slice(0)
+      .reduce((proteins, codon, i, arr) => {
+        const protein = codon === 'AUG' ? 'Methionine'
+          : codon === 'UUU' || codon === 'UUC' ? 'Phenylalanine'
+          : codon === 'UUA' || codon === 'UUG' ? 'Leucine'
+          : codon === 'UCU' || codon === 'UCC' || codon === 'UCA' || codon === 'UCG' ? 'Serine'
+          : codon === 'UAU' || codon === 'UAC' ? 'Tyrosine'
+          : codon === 'UGU' || codon === 'UGC' ? 'Cysteine'
+          : codon === 'UGG' ? 'Tryptophan'
+          : codon === 'UAA' || codon === 'UAG' || codon === 'UGA' ? null
+          : 'error'
+  
+        if (protein && protein !== 'error') {
+          proteins.push(protein)
+        } else if (protein === 'error') {
+          console.log(proteins)
+          throw new Error('Invalid codon')
+        }
+  
+        if (codons[0] === 'UAA' || codons[0] === 'UAG' || codons[0] === 'UGA') {
+          proteins = []
+        }
+        
+        if (codons[i-1] === 'UAA' || codons[i-1] === 'UAG' || codons[i-1] === 'UGA') {
+          arr.splice(i-1)
+          proteins.pop()
+        }
+  
+        return proteins
+      }, [])
+    return proteins
+  };
