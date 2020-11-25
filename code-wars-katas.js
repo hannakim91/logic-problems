@@ -37,7 +37,7 @@ function matrixAddition(a, b){
   
   return chunk(c, matrixLength)
 }
-
+ls
 function chunk(array, size) {
   const chunkedArray = [];
   let index = 0;
