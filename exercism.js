@@ -16,6 +16,16 @@
     return false
   };
 
+  // gigasecond
+
+  export const gigasecond = (date) => {
+    const dateInMS = Date.parse(date)
+    const addGigaseconds = dateInMS + 1000000000000
+    const gigasecondDate = new Date(addGigaseconds)
+    console.log(gigasecondDate)
+    return gigasecondDate
+  }
+
   // DiffieHellman
   
   export class DiffieHellman {
