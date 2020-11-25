@@ -1,4 +1,10 @@
 // EASY
+  
+  // twoFer
+
+  export const twoFer = (name) => {
+    return `One for ${name || "you"}, one for me.`
+  };
 
   // Pangram
   export const isPangram = (string) => {
