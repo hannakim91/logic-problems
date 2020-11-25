@@ -86,13 +86,11 @@
   const COLORS = ["black","brown","red","orange","yellow","green","blue","violet","grey","white"];
 
   // protein translation
-  
-  export const translate = (RNA) => {
-
+  function splitToCodons(RNA) {
     if (!RNA) {
-      return []
-    } else if (!(RNA.length % 3 === 0)) {
-      throw new Error('Invalid codon')
+      return [];
+    } else if (RNA.length % 3 !== 0) {
+      throw new Error('Invalid codon');
     }
   
     const codons = []
@@ -101,11 +99,11 @@
       codons.push(RNA.slice(i, i+3))
       i += 3
     }
+    return codons
+  }
   
-    const proteins = codons
-      .slice(0)
-      .reduce((proteins, codon, i, arr) => {
-        const protein = codon === 'AUG' ? 'Methionine'
+  function translateToProtein(codon) {
+    const protein = codon === 'AUG' ? 'Methionine'
           : codon === 'UUU' || codon === 'UUC' ? 'Phenylalanine'
           : codon === 'UUA' || codon === 'UUG' ? 'Leucine'
           : codon === 'UCU' || codon === 'UCC' || codon === 'UCA' || codon === 'UCG' ? 'Serine'
@@ -114,15 +112,24 @@
           : codon === 'UGG' ? 'Tryptophan'
           : codon === 'UAA' || codon === 'UAG' || codon === 'UGA' ? null
           : 'error'
+    return protein
+  }
+  
+  export const translate = (RNA) => {
+  
+    const codons = splitToCodons(RNA)
+  
+    return codons
+      .slice(0)
+      .reduce((proteins, codon, i, arr) => {
+        const protein = translateToProtein(codon)
   
         if (protein && protein !== 'error') {
           proteins.push(protein)
         } else if (protein === 'error') {
           console.log(proteins)
           throw new Error('Invalid codon')
-        }
-  
-        if (codons[0] === 'UAA' || codons[0] === 'UAG' || codons[0] === 'UGA') {
+        } else if (codons[0] === 'UAA' || codons[0] === 'UAG' || codons[0] === 'UGA') {
           proteins = []
         }
         
@@ -133,5 +140,4 @@
   
         return proteins
       }, [])
-    return proteins
   };
