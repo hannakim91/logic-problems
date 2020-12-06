@@ -98,6 +98,19 @@ matrixAddition(
 
 // Examples: spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw" spinWords( "This is a test") => returns "This is a test" spinWords( "This is another test" )=> returns "This is rehtona test"
 
+//separate sentence into an array of word strings
+//iterate through each word with reduce to return a string
+  //if word.length > 5
+    // reverse the word - turn word into an array of characters
+      //iterate through array starting with last element
+        // push each element into main string
+  // else
+    // concatenate to string
+
+// remove space before first word before returning
+
+
+
 // 7
 
 // List Filtering
