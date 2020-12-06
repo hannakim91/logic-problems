@@ -109,7 +109,27 @@ matrixAddition(
 
 // remove space before first word before returning
 
+function spinWords(sentence) {
+  const words = sentence.split(' ')
+  const spun = words.reduce((spun, word) => {
+    if (word.length >= 5) {
+      const letters = word.split('')
+      let reversed = ''
+      for (let i = letters.length - 1; i >= 0; i--) {
+        reversed = reversed + letters[i]
+      }
+      spun.push(reversed)
+    } else {
+      spun.push(word)
+    }
+    return spun
+  }, [])
+  return spun.join(' ')
+}
 
+spinWords("Welcome")
+spinWords("Hey fellow warriors")
+spinWords("Just kidding there is still one more")
 
 // 7
 
