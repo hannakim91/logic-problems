@@ -96,6 +96,13 @@ matrixAddition(
 // List Filtering
 // In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
 
+// iterate through array using filter
+  // if elem is a number && elem is positive
+    // include it in array to return
+    function filter_list(l) {
+      return l.filter(elem => typeof elem === 'number' && elem >= 0)
+    }
+
 // 8 
 
 // The Feast of Many Beasts https://www.codewars.com/kata/5aa736a455f906981800360d
