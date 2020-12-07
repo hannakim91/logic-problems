@@ -204,14 +204,22 @@ countSheeps(array1)
 // Summation
 // Write a program that finds the summation of every number from 1 to num. The number will always be a positive integer greater than 0.
 
+// var summation = function (num) {
+//   const nums = []
+//   for (let i = 1; i <= num; i++) {
+//     nums.push(i)
+//   }
+//   return nums.reduce((sum, num) => {
+//     return sum += num
+//   }, 0)
+// }
+
 var summation = function (num) {
-  const nums = []
+  let sum = 0
   for (let i = 1; i <= num; i++) {
-    nums.push(i)
+    sum += i
   }
-  return nums.reduce((sum, num) => {
-    return sum += num
-  }, 0)
+  return sum
 }
 
 summation(2) 
