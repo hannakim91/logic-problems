@@ -149,6 +149,15 @@ spinWords("Just kidding there is still one more")
 
 // Your task is to write a function maskify, which changes all but the last four characters into '#'.
 
+// edge cases: fewer than 4 characters
+// if !cc.length || cc.length <= 4
+  // return cc
+// else
+  // set cc.length - 4 to variable 'maskLength'
+  // set variable ccLast4 to cut last 4 chars off cc
+  // add maskLength number of #'s to front of cc-last 4 with for loop using maskLength as breakpoint for num of times to add '#' to a string
+  //return concatenation of last4 and mask
+
 // 8 
 
 // The Feast of Many Beasts https://www.codewars.com/kata/5aa736a455f906981800360d

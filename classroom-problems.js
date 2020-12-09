@@ -14,3 +14,12 @@
 // integerToRoman(1) => “I”
 // integerToRoman(4) => “IV”
 // integerToRoman(49) => “XLIX”
+
+// type of problem: patterns + match - each roman numeral corresponds to # value - so i would need to know what each is
+// i = 1's
+// X = 10's { i : 1, x: 10...}
+
+// create an object mapping each roman numeral to # 
+// conditions on - integer is smaller than 5, i'd know i only want to use I's as return value
+// if integer is between 5-10
+// this would be very lengthy-- 
