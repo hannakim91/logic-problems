@@ -158,6 +158,20 @@ spinWords("Just kidding there is still one more")
   // add maskLength number of #'s to front of cc-last 4 with for loop using maskLength as breakpoint for num of times to add '#' to a string
   //return concatenation of last4 and mask
 
+  function maskify(cc) {
+    if (!cc.length || cc.length <= 4) {
+      return cc
+    } else {
+      const maskLength = cc.length - 4
+      const last4 = cc.slice(maskLength, cc.length)
+      let mask = ''
+      for (let i = 0; i < maskLength; i++) {
+        mask += '#'
+      }
+      return mask + last4
+    }
+  }
+
 // 8 
 
 // The Feast of Many Beasts https://www.codewars.com/kata/5aa736a455f906981800360d
