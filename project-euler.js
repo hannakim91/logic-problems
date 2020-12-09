@@ -1,4 +1,3 @@
-// In groups: Break this problem down into smaller pieces
 // Project Euler.net #19
 // You are given the following information,
 // 1 Jan 1900 was a Monday.
