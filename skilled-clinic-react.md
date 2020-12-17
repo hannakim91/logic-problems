@@ -38,6 +38,7 @@
   - e.g. additional header element 'foo'  but hardcoded `map` for header and data
   - change in data would break view
 - controller should manipulate model
+- like how DOM and data model are kept separate in vanilla JS app
   - INSTEAD: dynamic map
   data.map((rowData) => {
     return
@@ -54,7 +55,7 @@
 #### this.setState is NOT synchronous
 - doesn't happen right away but will happen soon-- WHY?
 - if there were 5 changes in this.setState -> would have to cross DOM bridge 5x --> if values don't change right away, they can all be done at once instead (React's flexibility & power)
-
+- stack needs to clear before async call is complete
 class Table extends React.Component {
   constructor(props {
     super(props)
@@ -71,3 +72,16 @@ class Table extends React.Component {
     //both console logs will list foo = 1
   }
 }
+#### call stack
+function C() {
+}
+function B() {
+  C();
+}
+function A() {
+  B();
+}
+
+A();
+//STACK = A calls B -> B calls C -> B calls C -> C resolves, B resolves, A resolves
+// first in last out
