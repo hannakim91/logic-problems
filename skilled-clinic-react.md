@@ -22,7 +22,7 @@
 - Variables for categories and their contents
 - Let names = [{name: Anna, age: 30}…]
 - Depending of # of keys - change number of rows/columns
-#### Solution:
+### Solution:
 - Data structure: 
     const data = [{name: ‘Anna’, age: 30, key: 'AAA'}, {name: ‘Benny’, age: 20, key: 'BBB'}, {name: 'Cass', age: 22, key: 'CCC'}]
     const headers = [{label: 'age in years', key: 'age'}, {label: 'name', label: 'name'}]
@@ -49,3 +49,25 @@
   })
   - **good to mention performance issues about nested iterator**
 - view should display the model
+
+### Async/sync flow
+#### this.setState is NOT synchronous
+- doesn't happen right away but will happen soon-- WHY?
+- if there were 5 changes in this.setState -> would have to cross DOM bridge 5x --> if values don't change right away, they can all be done at once instead (React's flexibility & power)
+
+class Table extends React.Component {
+  constructor(props {
+    super(props)
+    this.state = {
+      foo: 1
+    }
+  })
+  myOnClick() {
+    console.log("A:", this.state.foo)
+    this.setState({
+      foo: this.state.foo + 1
+    })
+    console.log("B:", this.state.foo)
+    //both console logs will list foo = 1
+  }
+}
