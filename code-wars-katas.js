@@ -277,3 +277,34 @@ const digitize = (num) => {
     .reverse()
     .map(char => parseInt(char))
 }
+
+// Needle in the Haystack
+
+// Can you find the needle in the haystack?
+
+// Write a function findNeedle() that takes an array full of junk but containing one "needle"
+
+// After your function finds the needle it should return a message (as a string) that says:
+
+// "found the needle at position " plus the index it found the needle, so:
+
+// iterate through array
+// if element strictly equals "needle", return string "found the needle at position [index #]"
+
+const findNeedle = (arr) => {
+  return arr.reduce((statement, elem, i) => {
+    if (elem === "needle") {
+      statement = `found the needle at position ${i}`
+    }
+    return statement
+  }, '')
+}
+findNeedle(['hay', 'junk', 'hay', 'hay', 'moreJunk', 'needle', 'randomJunk'])
+// return "found the needle at position 5"
+
+// more performant solution:
+// don't need to iterate through array then?
+function findNeedle2(haystack) {
+  return "found the needle at position " + haystack.indexOf("needle");
+}
+findNeedle2([1, 2, 3, 'needle', 'noodle', 'nodding off'])
