@@ -189,6 +189,24 @@ spinWords("Just kidding there is still one more")
   // Example Output
   //["Open", "Open", "Senior", "Open", "Open", "Senior"]
 
+  // check if each app (nested array) at 0th index is >= 55
+  // if not, return 'Open'
+// check if each app at 1st index is > 7
+  // if not, return 'Open'
+  // if so, return 'Senior'
+// **reverse conditions to cut down on # of checks**
+
+const openOrSenior = (apps) => {
+  return apps.reduce((categories, app) => {
+    if (app[0] >= 55 && app[1] > 7) {
+      categories.push('Senior')
+    } else if (app[0] < 55 || app[1] <= 7) {
+      categories.push('Open')
+    }
+    return categories
+  }, [])
+}
+
 // 8 
 
 // The Feast of Many Beasts https://www.codewars.com/kata/5aa736a455f906981800360d
