@@ -207,6 +207,14 @@ const openOrSenior = (apps) => {
   }, [])
 }
 
+// can use destructuring/ternary for cleaner syntax
+// don't need to use return statement
+
+function openOrSenior2(data){
+  return data.map(([age, handicap]) => (age > 54 && handicap > 7) ? 'Senior' : 'Open');
+}
+
+
 // 8 
 
 // The Feast of Many Beasts https://www.codewars.com/kata/5aa736a455f906981800360d
