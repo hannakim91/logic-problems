@@ -263,3 +263,17 @@ summation(8)
 // for loop
   // num = add 1 to array num number of times, increase by 1 each time
 // reduce to add up nums in array
+
+// Digitize - convert number to reversed array of digits
+
+// convert number to string
+// convert string to array
+// reverse array
+// iterate through array using map and convert each str to num
+
+const digitize = (num) => {
+  return num.toString()
+    .split('')
+    .reverse()
+    .map(char => parseInt(char))
+}

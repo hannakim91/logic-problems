@@ -34,10 +34,13 @@
     - without key: need to kill/recreate child elem when you want to shuffle things around
 #### MVC - model, view, control
 - design principle problem
+  - array, object, set - main data structures, in order of importance
+  - map, reduce, filter, sort (what they do)
 - make sure model (data) and view (table) are not tightly coupled -> should be independent of each other
   - e.g. additional header element 'foo'  but hardcoded `map` for header and data
   - change in data would break view
 - controller should manipulate model
+  - business logic (sort, delete)
 - like how DOM and data model are kept separate in vanilla JS app
   - INSTEAD: dynamic map
   data.map((rowData) => {
@@ -50,6 +53,10 @@
   })
   - **good to mention performance issues about nested iterator**
 - view should display the model
+
+#### add another header elem "select"
+- doesn't need corresponding key in data array
+- checkbox element
 
 ### Async/sync flow
 #### this.setState is NOT synchronous
@@ -85,3 +92,10 @@ function A() {
 A();
 //STACK = A calls B -> B calls C -> B calls C -> C resolves, B resolves, A resolves
 // first in last out
+
+### design interview questions
+- typically not for jr roles
+- e.g. calendar app
+- **memoize** function/async memoize
+  - e.g. autofill queries on google searchbar -- cache value for a week
+- recreate lodash
