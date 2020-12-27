@@ -140,6 +140,16 @@ spinWords("Just kidding there is still one more")
 // "Success"  =>  ")())())"
 // "(( @"     =>  "))((" 
 
+// convert string to lower case
+// turn string into array
+// iterate through array
+  // create an object set to each unique letter of array
+    // counter
+// if object has that letter once 
+  // add `(` to return statement
+// else if it does
+  // add `)`
+  
 const duplicateEncode = str => {
   const letters = str.toLowerCase().split('')
   let conversion = ''
