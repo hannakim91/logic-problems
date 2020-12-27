@@ -140,6 +140,28 @@ spinWords("Just kidding there is still one more")
 // "Success"  =>  ")())())"
 // "(( @"     =>  "))((" 
 
+const duplicateEncode = str => {
+  const letters = str.toLowerCase().split('')
+  let conversion = ''
+  const counter = letters.reduce((obj, letter) => {
+    if (!obj[letter]) {
+      obj[letter] = 1
+    } else {
+      obj[letter] += 1
+    }
+    return obj
+  }, {})
+
+  letters.forEach(letter => {
+    if (counter[letter] === 1) {
+      conversion = conversion.concat('(')
+    } else {
+      conversion = conversion.concat(')')
+    }
+  })
+  return conversion
+}
+
 // 7
 
 // List Filtering
