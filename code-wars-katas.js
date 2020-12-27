@@ -11,6 +11,18 @@
 // rgb(0,0,0) // returns 000000
 // rgb(148, 0, 211) // returns 9400D3
 
+// function takes 3 args (digits) and returns a 6-char string
+  // each digit = 2 characters in string
+
+//figure out how RGB and hex corresponds
+  // each digit has to be calculated separately - decimal to hexadecimal
+// create hexidecimal conversion object {0:0,...0:9,10:'A',...15:'F'}
+// FIRST arg:
+  // divide by 16 (remainder to 2 decimal places?) to get first digit of hexcode
+    // take whole number portion and convert to hexadecimal
+  // multiply remainder by 16 and convert to hexadecimal
+// repeat for SECOND and THIRD args
+// concat/join 3 return values together
 
 // 6
 
