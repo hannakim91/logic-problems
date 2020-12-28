@@ -24,6 +24,44 @@
 // repeat for SECOND and THIRD args
 // concat/join 3 return values together
 
+const rgb = (a, b, c) => {
+  let hex = ''
+  const hexatize = (digit) => {
+    const decToHex = {
+      10: 'A',
+      11: 'B',
+      12: 'C',
+      13: 'D',
+      14: 'E',
+      15: 'F'
+    }
+    
+    if (digit > 255) {
+      digit = 255
+    } else if (digit < 0) {
+      digit = 0
+    }
+    let x = (digit / 16)
+    let y = (x - Math.floor(x)) * 16
+
+    x = Math.floor(x).toString()
+    y = y.toString()
+    if (x >= 10) {
+      x = decToHex[x]
+    }
+    if (y >= 10) {
+      y = decToHex[y]
+    }
+    return x.concat(y)
+  }
+  
+  const first = hexatize(a)
+  const second = hexatize(b)
+  const third = hexatize(c)
+  hex = hex.concat(first, second, third)
+  return hex
+}
+
 // 6
 
 // Sort My Animals: https://www.codewars.com/kata/58ff1c8b13b001a5a50005b4
