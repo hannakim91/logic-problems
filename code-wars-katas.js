@@ -62,6 +62,9 @@ const rgb = (a, b, c) => {
   return hex
 }
 
+// additional notes:
+  // .toString() can be manipulated with base number before parsing into a string
+
 // 6
 
 // Sort My Animals: https://www.codewars.com/kata/58ff1c8b13b001a5a50005b4
