@@ -36,10 +36,10 @@ const rgb = (a, b, c) => {
       15: 'F'
     }
     
-    if (digit > 255) {
-      digit = 255
-    } else if (digit < 0) {
-      digit = 0
+    if (digit >= 255) {
+      return 'FF'
+    } else if (digit <= 0) {
+      return '00'
     }
     let x = (digit / 16)
     let y = (x - Math.floor(x)) * 16
