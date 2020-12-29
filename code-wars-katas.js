@@ -127,6 +127,14 @@ Your task in order to complete this Kata is to write a function which formats a 
 // SUN: 11:00 - 23:00
 // Be careful because some days may be missed. You may be given an array only of Monday and Friday with the same hours, but they shouldn't be concatenated.
 
+// receive an array of objects with properties day, from, to
+// return string concatenated with days and times to work
+  // string should start with MON and end with SUN
+  // days should be CAPITALIZED
+  // dashes between start - end times; dashes between MON - WED if needed
+  // if consecutive days work sched are same
+    // concatenate into one line (e.g. MON - WED)
+
 // Sort My Animals: https://www.codewars.com/kata/58ff1c8b13b001a5a50005b4
 
 function sortAnimal(list) {
