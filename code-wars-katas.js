@@ -135,6 +135,16 @@ Your task in order to complete this Kata is to write a function which formats a 
   // if consecutive days work sched are same
     // concatenate into one line (e.g. MON - WED)
 
+    // iterate through array with reduce to return a string - use optional index
+  // 7 if conditions for each day of the week
+  // if array includes "mon"...
+    // concat string with capitalized MON: START - END
+  // if array includes "tue"...
+    // if START/END times === MON START/END
+      // replace string with MON - TUE: START - END
+    // else concatenate TUE: START - END
+// this is a forkton of conditions...
+
 // Sort My Animals: https://www.codewars.com/kata/58ff1c8b13b001a5a50005b4
 
 function sortAnimal(list) {
