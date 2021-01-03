@@ -22,8 +22,9 @@ what to touch on?
 - value of `this` changes depending where you're at
 
 ### currying
-
+- partial application
 ### generator functions
+- moreso in BE; not much in heavy UX/UI dev
 
 ## behavioral/technical
 - have opinions on tools vs "i was taught this"
