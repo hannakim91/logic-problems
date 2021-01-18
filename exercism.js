@@ -17,7 +17,46 @@
   // first principles; research is allowed, indeed, encouraged. Finding the best
   // algorithm for the problem is a key skill in software engineering.
 
+  function squareOfSum(num) {
+    // create an array including this.num and this.num - 1 until 1
+    // iterate through array using reduce
+      // add up all the numbers
+    // return square of that number 
+    const arr = []
+    for (let i = num; i >= 1; i--) {
+      arr.push(i)
+    }
+    const sum = arr.reduce((sum, num) => {
+      return sum += num
+    }, 0)
+    return sum * sum
+  }
+  
+  function sumOfSquares(num) {
+    // create array including num - 1, subtracting 1 at a time from num
+    // iterate through each number in array with reduce
+      // find square of each number
+      // add to sum (return value)
+    const arr = []
+    for (let i = num; i >= 1; i--) {
+      arr.push(i)
+    }
+    const squaresAdded = arr.reduce((sum, num) => {
+      sum += num * num
+      return sum
+    }, 0)
+    
+    return squaresAdded
+  }
+  sumOfSquares(1)
+  sumOfSquares(5)
+  sumOfSquares(100)
+  
+  function difference(num) {
+    return squareOfSum(num) - sumOfSquares(num)
+  }
 
+  
   // twoFer
 
   export const twoFer = (name) => {
