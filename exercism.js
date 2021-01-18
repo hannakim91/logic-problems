@@ -17,15 +17,20 @@
   // first principles; research is allowed, indeed, encouraged. Finding the best
   // algorithm for the problem is a key skill in software engineering.
 
+  function findArr(num) {
+    const arr = []
+    for (let i = num; i >= 1; i--) {
+      arr.push(i)
+    }
+    return arr
+  }
+  
   function squareOfSum(num) {
     // create an array including this.num and this.num - 1 until 1
     // iterate through array using reduce
       // add up all the numbers
     // return square of that number 
-    const arr = []
-    for (let i = num; i >= 1; i--) {
-      arr.push(i)
-    }
+    const arr = findArr(num)
     const sum = arr.reduce((sum, num) => {
       return sum += num
     }, 0)
@@ -37,10 +42,7 @@
     // iterate through each number in array with reduce
       // find square of each number
       // add to sum (return value)
-    const arr = []
-    for (let i = num; i >= 1; i--) {
-      arr.push(i)
-    }
+    const arr = findArr(num)
     const squaresAdded = arr.reduce((sum, num) => {
       sum += num * num
       return sum
@@ -55,8 +57,15 @@
   function difference(num) {
     return squareOfSum(num) - sumOfSquares(num)
   }
-
   
+  difference(1)
+  difference(5)
+  difference(100)
+  
+  squareOfSum(1)
+  squareOfSum(5)
+  squareOfSum(100)
+
   // twoFer
 
   export const twoFer = (name) => {
