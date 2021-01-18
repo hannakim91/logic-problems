@@ -24,6 +24,14 @@ what to touch on?
 ### currying
 - partial application
 ### generator functions
+
+### if limited on time - more unit or integration testing?
+- pyramid testing (lots of unit, medium amt of integration, one big end-to-end on top) -- now "trophy" style? with focus on integration
+- dan abramov
+- unit tests might be brittle
+- what's the point of having unit tests that exist within integration test? it can be extra work (if there's a new feature/edit -> now you have to edit in two places)
+- testing for behavior specifically in react - integration tests more useful for this
+
 - moreso in BE; not much in heavy UX/UI dev
 
 ## behavioral/technical
@@ -36,4 +44,8 @@ what to touch on?
 - robust -- abstractions on top of react (e.g. next.js)
 - what are cons? reactive technology
 
-### 
+## tips:
+- focus on one concept at a time (e.g. `this` for a week)
+- core JS concepts
+- Read through Impatient JS more
+- Execute Program lessons: JS concurrency (~10-14 days) and modern JS (2-3 wks)
