@@ -350,6 +350,14 @@ const duplicateEncode = str => {
 // number([[3,0],[9,1],[4,8],[12,2],[6,1],[7,8]])
 // // 21);
 
+var number = function(busStops) {
+  const stragglers = busStops.reduce((stragglers, stop) => {
+    return stragglers += stop[0] - stop[1]
+  }, 0)
+  return stragglers
+}
+
+
 // Please keep in mind that the test cases ensure that the number of people in the bus is always >= 0. So the return integer can't be negative.
 
 // The second value in the first integer array is 0, since the bus is empty in the first bus stop.
