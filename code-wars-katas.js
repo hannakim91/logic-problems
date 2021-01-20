@@ -67,6 +67,28 @@ const rgb = (a, b, c) => {
 
 // 6
 
+// Did someone say cake?
+// Given the below recipe for chocolate cake write a function cake() that takes two inputs: ingredient and amount.
+
+// The recipe should be adjusted according to the amount passed into the function. An Object containing all ingredients and their new amounts should be returned.
+
+// Note that the new amounts should be rounded to 1 decimal place and unit of measurement for amount will always be in grams, unless the ingredient is eggs.
+
+// Here is the original recipe:
+
+// 160g caster sugar
+// 170g butter
+// 3 eggs
+// 115g self-raising flour
+// 55g cocoa powder
+
+// Example:
+// If I have just 80g of caster sugar, how much will I need of the other ingredients?
+
+cake('caster sugar',80) => {'caster sugar': '80g', butter: '85g', eggs: 1.5, 'self-raising flour': '57.5g', 'cocoa powder': '27.5g'}
+
+
+
 // Readable Time Schedule
 
 Your task in order to complete this Kata is to write a function which formats a working hours schedule, given as an array of objects, in a human-friendly way.
