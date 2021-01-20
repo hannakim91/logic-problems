@@ -91,6 +91,11 @@ cake('caster sugar',80) => {'caster sugar': '80g', butter: '85g', eggs: 1.5, 'se
 //call function with 2 args - ingredient and amount of that ingredient you want to use in the recipe
 // return object including your ingredient how much you'd need of each other ingredient - in the correct ratio
 
+//assumptions
+//return an obj
+// ingredient you're checking against exists in the recipe (can create a check for it and error message - edge case)
+// you can use more or less than original amount recipe calls for - round to one decimal place  
+
 // Readable Time Schedule
 
 Your task in order to complete this Kata is to write a function which formats a working hours schedule, given as an array of objects, in a human-friendly way.
