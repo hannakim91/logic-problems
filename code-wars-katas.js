@@ -87,7 +87,9 @@ const rgb = (a, b, c) => {
 
 cake('caster sugar',80) => {'caster sugar': '80g', butter: '85g', eggs: 1.5, 'self-raising flour': '57.5g', 'cocoa powder': '27.5g'}
 
-
+//given a recipe for cake
+//call function with 2 args - ingredient and amount of that ingredient you want to use in the recipe
+// return object including your ingredient how much you'd need of each other ingredient - in the correct ratio
 
 // Readable Time Schedule
 
