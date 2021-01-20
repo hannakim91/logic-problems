@@ -94,7 +94,13 @@ cake('caster sugar',80) => {'caster sugar': '80g', butter: '85g', eggs: 1.5, 'se
 //assumptions
 //return an obj
 // ingredient you're checking against exists in the recipe (can create a check for it and error message - edge case)
-// you can use more or less than original amount recipe calls for - round to one decimal place  
+// you can use more or less than original amount recipe calls for - round to one decimal place 
+
+//pseudo
+//match first argument to key in recipe object to get the original amount
+// create ratio variable using second arg divided by original amt
+// map through recipe using Object.keys
+  // multiply by that ratio for each ingredient
 
 // Readable Time Schedule
 
