@@ -68,6 +68,7 @@ const rgb = (a, b, c) => {
 // 6
 
 // Did someone say cake?
+
 // Given the below recipe for chocolate cake write a function cake() that takes two inputs: ingredient and amount.
 
 // The recipe should be adjusted according to the amount passed into the function. An Object containing all ingredients and their new amounts should be returned.
@@ -85,8 +86,6 @@ const rgb = (a, b, c) => {
 // Example:
 // If I have just 80g of caster sugar, how much will I need of the other ingredients?
 
-cake('caster sugar',80) => {'caster sugar': '80g', butter: '85g', eggs: 1.5, 'self-raising flour': '57.5g', 'cocoa powder': '27.5g'}
-
 //given a recipe for cake
 //call function with 2 args - ingredient and amount of that ingredient you want to use in the recipe
 // return object including your ingredient how much you'd need of each other ingredient - in the correct ratio
@@ -94,14 +93,37 @@ cake('caster sugar',80) => {'caster sugar': '80g', butter: '85g', eggs: 1.5, 'se
 //assumptions
 //return an obj
 // ingredient you're checking against exists in the recipe (can create a check for it and error message - edge case)
-// you can use more or less than original amount recipe calls for - round to one decimal place 
+// you can use more or less than original amount recipe calls for - round to one decimal place
 
-//pseudo
+// math/optimization later
+
 //match first argument to key in recipe object to get the original amount
 // create ratio variable using second arg divided by original amt
-// map through recipe using Object.keys
+// reduce through recipe using Object.keys
+  // access original recipe with bracket notation
+  // if ingredient is NOT 'egg' -- concatenate 'g' and turn it int a string
   // multiply by that ratio for each ingredient
+    // round to nearest .1 place
 
+    function cake(item, amount) {
+      const recipe = {'caster sugar': 160, 'butter': 170, 'eggs': 3, 'self-raising flour': 115, 'cocoa powder': 55};
+      const ratio = amount / recipe[item]
+      const adjusted = Object.keys(recipe).reduce((adjusted, ingredient) => {
+        adjusted[ingredient] = (Math.round(ratio * recipe[ingredient] * 10)/10)
+        
+        return adjusted
+      }, {})
+      return adjusted
+    }
+    
+    // cake('butter', 55)
+    // // {'caster sugar': '51.8g', butter: '55g', eggs: 1, 'self-raising flour': '37.2g', 'cocoa powder': '17.8g'}
+    // cake('cocoa powder',100.5)
+    //   //,{'caster sugar': '292.4g', butter: '310.6g', eggs: 5.5, 'self-raising flour': '210.1g', 'cocoa powder': '100.5g'});
+    
+    // cake('caster sugar', 80)
+    // // {'caster sugar': '80g', butter: '85g', eggs: 1.5, 'self-raising flour': '57.5g', 'cocoa powder': '27.5g'}
+        
 // Readable Time Schedule
 
 Your task in order to complete this Kata is to write a function which formats a working hours schedule, given as an array of objects, in a human-friendly way.
