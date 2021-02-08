@@ -81,6 +81,19 @@ const rgb = (a, b, c) => {
 decipherThis('72olle 103doo 100ya'); // 'Hello good day'
 decipherThis('82yade 115te 103o'); // 'Ready set go'
 
+// pseudocode
+// split at space
+// iterate through each string and turn each word into an array of characters
+// iterate through each array of characters with reduce to return decipheredWord
+  // if character is a number, push char to variable 'charCode'
+  // if character is last index number,
+    // turn charCode to string (String.fromCharCode)
+    // concatenate charCode to decipheredWord
+    // concatenate last char to decipheredWord
+  // if character is not last index number but not number
+    // add to restOfWord
+// return decipheredWord + rest of word with first char of restOfWord at end
+
 // Did someone say cake?
 
 // Given the below recipe for chocolate cake write a function cake() that takes two inputs: ingredient and amount.
