@@ -93,6 +93,32 @@ decipherThis('82yade 115te 103o'); // 'Ready set go'
   // if character is not last index number but not number
     // add to restOfWord
 // return decipheredWord + rest of word with first char of restOfWord at end
+const decipherThis = str => {
+  let encodedStrs = str.split(' ')
+  encodedStrs = encodedStrs.map(str => str.split(''))
+  const test = encodedStrs.map(str => {
+    let charCode = ''
+    let restOfWord = ''
+    const word = str.reduce((decipheredWord, char, i) => {
+      if (!isNaN(char)) {
+        charCode += char
+      }
+      if (isNaN(char) && str.length - 1 === i) {
+        decipheredWord += String.fromCharCode(parseInt(charCode))
+        decipheredWord += char
+      } else if (isNaN(char)) {
+        restOfWord += char
+      }
+      return decipheredWord
+    }, '')
+    if (restOfWord.substring(1) !== '') {
+      return word + restOfWord.substring(1) + restOfWord[0]
+    } else {
+      return word + restOfWord
+    }
+  })
+  return test.join(' ')
+}
 
 // Did someone say cake?
 
