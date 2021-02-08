@@ -96,7 +96,7 @@ decipherThis('82yade 115te 103o'); // 'Ready set go'
 const decipherThis = str => {
   let encodedStrs = str.split(' ')
   encodedStrs = encodedStrs.map(str => str.split(''))
-  const test = encodedStrs.map(str => {
+  const sentence = encodedStrs.map(str => {
     let charCode = ''
     let restOfWord = ''
     const word = str.reduce((decipheredWord, char, i) => {
@@ -111,13 +111,16 @@ const decipherThis = str => {
       }
       return decipheredWord
     }, '')
+    if (restOfWord === '' && word === '') {
+      return String.fromCharCode(parseInt(charCode))
+    }
     if (restOfWord.substring(1) !== '') {
       return word + restOfWord.substring(1) + restOfWord[0]
     } else {
       return word + restOfWord
     }
   })
-  return test.join(' ')
+  return sentence.join(' ')
 }
 
 // Did someone say cake?
