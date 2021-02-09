@@ -88,6 +88,23 @@ const rgb = (a, b, c) => {
     // if there's 2 keys, stop looping
 // get key of object that has value of 1 
 
+const findUniq = arr => {
+  const numbers = arr.reduce((numbers, elem) => {
+    if (!numbers[elem]) {
+      numbers[elem] = 1
+    } else {
+      numbers[elem] += 1
+    }
+    return numbers
+  }, {})
+  
+  if (Object.values(numbers)[0] === 1) {
+    return Number(Object.keys(numbers)[0])
+  } else {
+    return Number(Object.keys(numbers)[1])
+  }
+}
+
 // findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
 // findUniq([ 0, 0, 0.55, 0, 0 ]) === 0.55
 
