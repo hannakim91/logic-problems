@@ -74,6 +74,20 @@ const rgb = (a, b, c) => {
 // It’s guaranteed that array contains at least 3 numbers.
 
 // The tests contain some very huge arrays, so think about performance.
+
+// reduce over array and return an object, numbers
+  // at each array element
+    // check if numbers[element] exists
+      // if it doesn't create it and set it to value, 1
+      // if it does, add 1 to matching value
+// get key of numbers where value === 1
+  // (use Object method)
+
+// performance: is there a way to short-circuit the map so it ends before looping through whole thing if it doesn't need to loop?
+  // at each iteration, check if there are more than 1 key in numbers object as well
+    // if there's 2 keys, stop looping
+// get key of object that has value of 1 
+
 // findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
 // findUniq([ 0, 0, 0.55, 0, 0 ]) === 0.55
 
