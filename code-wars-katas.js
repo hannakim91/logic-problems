@@ -67,6 +67,16 @@ const rgb = (a, b, c) => {
 
 // 6
 
+// Find the Unique Number
+
+// There is an array with some numbers. All numbers are equal except for one. Try to find it!
+
+// It’s guaranteed that array contains at least 3 numbers.
+
+// The tests contain some very huge arrays, so think about performance.
+// findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
+// findUniq([ 0, 0, 0.55, 0, 0 ]) === 0.55
+
 // Decipher This
 // You are given a secret message you need to decipher. Here are the things you need to know to decipher it:
 
