@@ -13,3 +13,41 @@
 
   // Question 2: Imagine you have a call center with three levels of employees: Respondent, Manager, and Director. An incoming telephone call must be first allocated to a Respondent who is free. If the Respondent can't handle the call, they must escalate the call to the Manager. If the Manager is not able to handle it, then the call must be escalated to the Director.
   // Design the classes and data structures for this problem. Implement a method "dispatchCall()" which assigns a call to the first available employee.
+
+  // assumptions:
+    // each employee can only handle 1 call at a time (no "hold")
+  // type of problem:
+    // language/api knowledge, data organization
+  // pseudocode:
+    // classes:
+      // Telephone
+        // properties
+          // callDetails: { callId, customerNumber, callTime } - initially null
+        // methods
+          // answerCall(call)
+            // set Telephone.callDetails
+          // dispatchCall
+            // check if Respondent.isAvailable is true
+              // if yes: trigger Respondent.receiveCall(this.callDetails)
+
+      // Respondent
+        // properties
+          // isAvailable: true
+          // callDetails: null --> call object
+        // methods
+          // receiveCall()
+            // pass callDetails to Respondent, toggle isAvailable to false
+          // reset/endCall()
+      // Manager
+        // properties
+          // isAvailable: true
+          // callDetails: null --> call object
+        // methods
+      // Director
+        // properties
+          // isAvailable: true
+          // callDetails: null --> call object
+        // methods
+    
+    // inherit some things from parent class (maybe "Employee" --> different level employees with basic props/methods)
+
