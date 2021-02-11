@@ -10,3 +10,6 @@
   // fill the five quart again
     // fill three quart using the five quart until three is full
   // now 4qt left in five quart
+
+  // Question 2: Imagine you have a call center with three levels of employees: Respondent, Manager, and Director. An incoming telephone call must be first allocated to a Respondent who is free. If the Respondent can't handle the call, they must escalate the call to the Manager. If the Manager is not able to handle it, then the call must be escalated to the Director.
+  // Design the classes and data structures for this problem. Implement a method "dispatchCall()" which assigns a call to the first available employee.
