@@ -77,6 +77,12 @@ const rgb = (a, b, c) => {
 
   // arrayDiff([1,2,2,2,3],[2]) == [1,3]
 
+  // if array B length is 0, return unique elements of array A
+    // cross reference with elements in array b
+      // nested iteration
+      // reduce on array A to return an array
+        // nest includes
+          // if element in A is NOT in array B, push it into array to return out of reduce
 
 // Find the Unique Number
 
