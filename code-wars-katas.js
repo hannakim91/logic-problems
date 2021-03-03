@@ -85,7 +85,33 @@ const rgb = (a, b, c) => {
           // if element in A is NOT in array B, push it into array to return out of reduce
 
   // alt - filter by !b.includes(e)
-// turing A into a unique array using Set for example will reduce time complexity 
+  // turing A into a unique array using Set for example will reduce time complexity 
+
+  const arrayDiff = (a, b) => {
+    if (b.length === 0) {
+      return a
+    }
+    return a.reduce((diff, elem) => {
+      if (!b.includes(elem)) {
+        diff.push(elem)
+      }
+      return diff
+    }, [])
+  }
+  
+  // const arrayDiff = (a, b) => {
+  //   const uniqueA = [...new Set(a)]
+  //   return uniqueA
+  // }
+  
+  // arrayDiff([], [4,5])
+  // // []
+  // arrayDiff([3,4], [3])
+  // // [4]
+  // arrayDiff([1,8,2], [])
+  // // [1,8,2]
+  // arrayDiff([9,15,7,4,-10,-14,-1,-8,-8],[4,7,15,-8,9,-14,-8,-1,-10])
+  // // []
 
 // Find the Unique Number
 
