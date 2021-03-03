@@ -16,38 +16,105 @@
 
   // assumptions:
     // each employee can only handle 1 call at a time (no "hold")
+    // call is an object with relevant details (id, phone #, time eventually?)
+    // missed this assumption: there's only one of each employee (book solution shows multiple instances of employee at different levels being created)
   // type of problem:
     // language/api knowledge, data organization
   // pseudocode:
     // classes:
-      // Telephone
+      // CallCenter
         // properties
-          // callDetails: { callId, customerNumber, callTime } - initially null
+          // callDetails: { callId, customerNumber, callTime } - initially null (is this necessary?)
+        // employee array to look through
         // methods
-          // answerCall(call)
-            // set Telephone.callDetails
+          // receiveCall(call)
+            // set CallCenter.callDetails
           // dispatchCall
-            // check if Respondent.isAvailable is true
-              // if yes: trigger Respondent.receiveCall(this.callDetails)
+            // would need to iterate through array of employees instead of just the 3 employees
+              // check employee.role
+
+            // OLD CODE: if there were 3 specific employee classes
+            // if Respondent.isAvailable is true
+              // trigger Respondent.answerCall(this.callDetails) // if Respondent.isAvailable is false && Manager.isAvailable is true
+              // trigger Manager.answerCall(this.callDetails) // if Respondent and Manager .isAvailable is false
+              // trigger Director.answerCall
+            // after dispatch -> set callDetails back to null
+    class CallCenter {
+      constructor(employees) {
+        callDetails: null;
+        employees: employees;
+      }
+
+      hireEmployee(employee) {
+        this.employees.push(employee)
+      }
+
+      answerCall(call) {
+        this.callDetails = call
+      }
+
+      dispatchCall() {
+        // filter employees who are respondents
+        // find through respondents and return first one that is available
+        // refactor opp: have 3 different arrays of diff employee types
+        let callAnswerer = null;
+        const respondents = this.employees.filter(employee => employee.role === 'respondent');
+        callAnswerer = respondents.find(employee => employee.isAvailable === true);
+        if (callAnswerer) {
+          // callanswerer.receiveCall()
+        }
+        if (callAnswerer === null) {
+          const managers = this.employees.filter(employee => employee.role === 'manager');
+          //find
+        } else 
+        // check for directors
+        this.callDetails = null
+      }
+    }
+
+    class Employee {
+      constructor (role) {
+        isAvailable: true;
+        role: role;
+      }
+
+      receiveCall() {
+        isAvailable: false;
+        // when customer hangs up call -> isAvailable should be set back to true
+      }
+      hangUp() {
+        //isAvailable = true
+      }
+    }
+
+    // instantiate different employees and add to CallCenter.employees
+    const respondent1 = new Employee('respondent')
+    const respondent2 = new Employee('respondent')
+    const respondent3 = new Employee('respondent')
+    const respondent4 = new Employee('respondent')
+    const manager1 = new Employee('manager')
+    const manager2 = new Employee('manager')
+    const director1 = new Employee('director')
+    const employees = [director1, respondent1, manager1, respondent2, respondent3, manager2, respondent4]
+    const callCenter1 = new CallCenter(employees)
 
       // Respondent
         // properties
           // isAvailable: true
-          // callDetails: null --> call object
+          // calls: []
         // methods
-          // receiveCall()
-            // pass callDetails to Respondent, toggle isAvailable to false
+          // answerCall()
+            // pass callDetails to Respondent calls array, toggle isAvailable to false
           // reset/endCall()
       // Manager
         // properties
           // isAvailable: true
-          // callDetails: null --> call object
         // methods
       // Director
         // properties
           // isAvailable: true
-          // callDetails: null --> call object
         // methods
     
-    // inherit some things from parent class (maybe "Employee" --> different level employees with basic props/methods)
+    // inherit some things from parent class (maybe "Employee" --> different level employees with basic props/methods needed for call handling - they may have different methods based on rank in the future)
+    // for now it's just employee objects with different names (respondent, manager, director)
 
