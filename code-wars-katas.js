@@ -84,6 +84,9 @@ const rgb = (a, b, c) => {
         // nest includes
           // if element in A is NOT in array B, push it into array to return out of reduce
 
+  // alt - filter by !b.includes(e)
+// turing A into a unique array using Set for example will reduce time complexity 
+
 // Find the Unique Number
 
 // There is an array with some numbers. All numbers are equal except for one. Try to find it!
